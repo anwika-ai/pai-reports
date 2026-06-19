@@ -168,6 +168,24 @@ footer{color:var(--hint);font-size:11.5px;margin-top:26px;padding-top:12px;borde
   <div class="st ok">OK</div>
 </div>
 
+<div class="tier">Highest subscriptions (amount &gt; 0, mapped currency)</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:6px">
+  <thead><tr style="color:var(--muted);text-align:left">
+    <th style="padding:7px 9px;font-weight:500;border-bottom:0.5px solid var(--border)">Plan</th>
+    <th style="padding:7px 9px;font-weight:500;border-bottom:0.5px solid var(--border)">Gateway</th>
+    <th style="padding:7px 9px;font-weight:500;border-bottom:0.5px solid var(--border)">Native amount</th>
+    <th style="padding:7px 9px;font-weight:500;border-bottom:0.5px solid var(--border);text-align:right">USD</th>
+  </tr></thead>
+  <tbody>
+    <tr><td style="padding:7px 9px">Gold</td><td style="padding:7px 9px">STRIPE</td><td style="padding:7px 9px">BRL 2,747.50</td><td style="padding:7px 9px;text-align:right">$549.50</td></tr>
+    <tr><td style="padding:7px 9px">Gold</td><td style="padding:7px 9px">STRIPE</td><td style="padding:7px 9px">EUR 510.00</td><td style="padding:7px 9px;text-align:right">$545.70</td></tr>
+    <tr><td style="padding:7px 9px">Pro</td><td style="padding:7px 9px">PADDLE</td><td style="padding:7px 9px">KRW 358,000.00</td><td style="padding:7px 9px;text-align:right">$259.42</td></tr>
+    <tr><td style="padding:7px 9px">Pro</td><td style="padding:7px 9px">PADDLE</td><td style="padding:7px 9px">CAD 340.00</td><td style="padding:7px 9px;text-align:right">$251.60</td></tr>
+    <tr><td style="padding:7px 9px">Pro</td><td style="padding:7px 9px">PADDLE</td><td style="padding:7px 9px">USD 240.00</td><td style="padding:7px 9px;text-align:right">$240.00</td></tr>
+  </tbody>
+</table>
+<p class="sub">Guard excluded 0 zero-amount and 0 unmapped-currency rows. Top: Gold BRL 2,747.50 = $549.50.</p>
+
 <footer>
 Generated for 2026-06-18 (IST · D-1). Baseline = trailing-7-day median (2026-06-11 … 2026-06-17).
 Sources: MySQL is_stripepayments / is_subscription_renewals / is_profile (FX→USD), ClickHouse eventcollection.
