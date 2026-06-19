@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Daily revenue alerts — 2026-06-18 (IST · D-1)</title>
+<style>
+:root{
+  --bg:#0f1419; --panel:#1a1f26; --panel2:#2a313b; --border:rgba(255,255,255,.14);
+  --text:#e6e9ef; --muted:#9aa3ad; --hint:#7a828c;
+  --danger-bg:#3a1d1d; --danger-tx:#f09595; --danger-bd:rgba(240,149,149,.45);
+  --ok-bg:#10362c; --ok-tx:#5dcaa5;
+  --mono:ui-monospace,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:28px 18px;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:21px;font-weight:500;margin:0 0 2px}
+.sub{font-size:13px;color:var(--muted);margin:0 0 18px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 22px}
+.mc{background:var(--panel2);border-radius:8px;padding:.9rem 1rem}
+.mc .l{font-size:12px;color:var(--muted)}
+.mc .v{font-size:24px;font-weight:500;margin-top:2px}
+.tier{font-size:13px;color:var(--muted);font-weight:500;margin:22px 0 8px}
+.row{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;
+     border:0.5px solid var(--border);border-radius:8px;padding:.6rem .85rem;margin-bottom:8px;background:var(--panel)}
+.row.fire{border-color:var(--danger-bd)}
+.rnum{font-family:var(--mono);font-size:12px;color:var(--hint)}
+.rtop{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rname{font-size:14px;font-weight:500}
+.src{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);
+     border:0.5px solid var(--border);border-radius:8px;padding:1px 7px}
+.dot{width:7px;height:7px;border-radius:50%}
+.rsub{display:flex;gap:10px;flex-wrap:wrap;margin-top:3px;font-size:12px}
+.base{color:var(--muted)}
+.st{font-size:11px;font-weight:500;padding:3px 10px;border-radius:8px;white-space:nowrap}
+.st.fire{background:var(--danger-bg);color:var(--danger-tx)}
+.st.ok{background:var(--ok-bg);color:var(--ok-tx)}
+footer{color:var(--hint);font-size:11.5px;margin-top:26px;padding-top:12px;border-top:0.5px solid var(--border)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Daily revenue alerts — 2026-06-18 <span style="color:var(--hint);font-weight:400">(IST · D-1)</span></h1>
+<p class="sub">Previous day · baseline = trailing 7-day median (2026-06-11 … 2026-06-17) · MySQL is_stripepayments + renewals (FX→USD) · ClickHouse funnel. 12 KPIs · 0 firing.</p>
+
+<div class="cards">
+  <div class="mc"><div class="l">Firing</div><div class="v" style="color:var(--ok-tx)">0</div></div>
+  <div class="mc"><div class="l">OK</div><div class="v" style="color:var(--ok-tx)">12</div></div>
+  <div class="mc"><div class="l">Total KPIs</div><div class="v">12</div></div>
+  <div class="mc"><div class="l">Target day</div><div class="v" style="font-size:17px">06-18 <span style="font-size:12px;color:var(--hint)">D-1</span></div></div>
+</div>
+
+<div class="tier">P1 — page on-call</div>
+
+<div class="row">
+  <div class="rnum">R1</div>
+  <div>
+    <div class="rtop"><span class="rname">Gross revenue (USD)</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>$11,557 gross</span><span class="base">vs $7,035 median · 164%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R2</div>
+  <div>
+    <div class="rtop"><span class="rname">Paying users</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>114 paying users</span><span class="base">vs 76 median · 150%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R3</div>
+  <div>
+    <div class="rtop"><span class="rname">New-business revenue (first-ever payers)</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>$7,893 new-biz (83 payers)</span><span class="base">vs $4,620 median · 171%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R4</div>
+  <div>
+    <div class="rtop"><span class="rname">Renewal count (all gateways)</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>27 renewals</span><span class="base">vs 24 median · 112%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R5</div>
+  <div>
+    <div class="rtop"><span class="rname">Payment-failure spike</span><span class="src"><span class="dot" style="background:#378ADD"></span>ClickHouse</span></div>
+    <div class="rsub"><span>75 payment failures</span><span class="base">vs 50 median · 150%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="tier">P2 — slack daily (composition / efficiency)</div>
+
+<div class="row">
+  <div class="rnum">R6</div>
+  <div>
+    <div class="rtop"><span class="rname">ARPU (USD per paying user)</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>$101 / payer</span><span class="base">vs $92 median · 110%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R7</div>
+  <div>
+    <div class="rtop"><span class="rname">T1-market revenue</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>$6,258 T1 revenue</span><span class="base">vs $3,905 median · 160%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R8</div>
+  <div>
+    <div class="rtop"><span class="rname">Gateway health</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>5 gateways · top PADDLE $5,653</span><span class="base">each vs its own 7d median</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R9</div>
+  <div>
+    <div class="rtop"><span class="rname">Plan-mix shift</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>biggest: Gold</span><span class="base">share ±15pp vs 7d median</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R10</div>
+  <div>
+    <div class="rtop"><span class="rname">One-off revenue (Export + AI credits)</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>$621 one-off</span><span class="base">vs $403 median · 154%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="tier">P3 — leading / churn</div>
+
+<div class="row">
+  <div class="rnum">R11</div>
+  <div>
+    <div class="rtop"><span class="rname">New-customer conversion (new payers ÷ signups)</span><span class="src"><span class="dot" style="background:#7F77DD"></span>multi</span></div>
+    <div class="rsub"><span>0.59% (83 new payers / 14,007 signups)</span><span class="base">vs 0.45% median · 131%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<div class="row">
+  <div class="rnum">R12</div>
+  <div>
+    <div class="rtop"><span class="rname">Cancellation spike</span><span class="src"><span class="dot" style="background:#1D9E75"></span>MySQL</span></div>
+    <div class="rsub"><span>22 cancellations</span><span class="base">vs 30 median · 73%</span></div>
+  </div>
+  <div class="st ok">OK</div>
+</div>
+
+<footer>
+Generated for 2026-06-18 (IST · D-1). Baseline = trailing-7-day median (2026-06-11 … 2026-06-17).
+Sources: MySQL is_stripepayments / is_subscription_renewals / is_profile (FX→USD), ClickHouse eventcollection.
+Every value cross-checked against raw sources; table↔HTML delivery validation: PASS. Refunds/chargebacks not yet trackable.
+</footer>
+
+</div>
+</body>
+</html>
