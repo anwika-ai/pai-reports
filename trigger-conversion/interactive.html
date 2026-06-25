@@ -40,20 +40,29 @@
   .notes li{margin:5px 0}
   .flag{color:var(--red);font-weight:600}
   footer{color:var(--muted);font-size:12px;margin-top:8px;text-align:center}
-  code{background:#f1f3f5;padding:1px 5px;border-radius:4px;font-size:12.5px}
+  code{background:#f1f3f5;padding:1px 5px;border-radius:4px;font-size:12.5px;word-break:break-word}
+  .tscroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  @media (max-width:640px){
+    body{padding:18px 10px}
+    h1{font-size:21px}
+    .card{padding:16px 14px;border-radius:12px}
+    table{font-size:13.5px}
+    th,td{padding:8px 9px}
+    th{font-size:11px}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Upgrade-trigger funnel &amp; conversion</h1>
-  <p class="sub">presentations.ai &middot; <strong>last 7 days</strong> (IST), window ~2026-06-17 &rarr; 2026-06-24 &middot;
+  <p class="sub">presentations.ai &middot; <strong>last 7 days</strong> (IST) &middot; sections 1&ndash;2 window ~2026-06-17&rarr;06-24, section 3 ~2026-06-18&rarr;06-25 &middot;
   payments verified against MySQL <code>is_stripepayments</code>, counted only <strong>after</strong> the user saw the trigger.</p>
 
   <!-- TABLE 1 -->
   <div class="card">
     <h2>1 &middot; The "Upgrade to Pro" modal — what people do, and who pays</h2>
     <p class="h2note">Every distinct person who saw the upgrade modal at least once. Counts people, not pop-ups.</p>
-    <table>
+    <div class="tscroll"><table>
       <thead><tr><th>What happened</th><th class="num">People</th><th class="num">Share of all who saw it</th></tr></thead>
       <tbody>
         <tr><td><span class="emoji">👁️</span>Saw the modal</td><td class="num">12,535</td><td class="num">100%</td></tr>
@@ -62,13 +71,13 @@
         <tr><td><span class="emoji">🚪</span>Ignored it, just left</td><td class="num">230</td><td class="num">2%</td></tr>
         <tr class="total"><td><span class="emoji">💰</span>Actually PAID (converted)</td><td class="num hl">123</td><td class="num hl">~1%</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <div class="takeaway">
       <strong>In one breath:</strong> ~12,500 people saw the upgrade modal last week. About 2,500 clicked Upgrade,
       but only <strong>123 actually paid</strong> — roughly <strong>1 in 100</strong> of everyone who saw it.
     </div>
     <p class="h2note" style="margin-top:18px;margin-bottom:6px"><strong>What those 123 buyers bought</strong></p>
-    <table>
+    <div class="tscroll"><table>
       <thead><tr><th>Bought</th><th>Type</th><th class="num">Buyers</th></tr></thead>
       <tbody>
         <tr><td>Pro</td><td>subscription</td><td class="num">55</td></tr>
@@ -80,7 +89,7 @@
         <tr><td>GPT3 Credits</td><td>one-off</td><td class="num">1</td></tr>
         <tr class="total"><td>Total distinct buyers</td><td>107 subscriptions + 19 one-offs*</td><td class="num">123</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p class="h2note" style="margin-top:6px">*3 people bought more than one type, so the rows sum to 126 while distinct buyers = 123.</p>
   </div>
 
@@ -89,7 +98,7 @@
     <h2>2 &middot; The 5 locked features in the Editor menu — clicks &amp; conversion</h2>
     <p class="h2note">Free users who tapped a locked feature (and hit the "Upgrade to access" paywall), then who paid afterward.
     Conversion is anchored to <em>when they clicked that specific feature</em>.</p>
-    <table>
+    <div class="tscroll"><table>
       <thead><tr><th>Locked feature</th><th>Plan</th><th class="num">👆 Clicked it</th><th class="num">💳 …then paid</th><th class="num">Rate</th></tr></thead>
       <tbody>
         <tr><td>Meet and edit</td><td><span class="badge pro">PRO</span></td><td class="num">172</td><td class="num">3</td><td class="num">1.7%</td></tr>
@@ -99,11 +108,53 @@
         <tr><td>Comments</td><td><span class="badge pro">PRO</span></td><td class="num">30</td><td class="num">0</td><td class="num">0%</td></tr>
         <tr class="total"><td>Total (unique people)</td><td></td><td class="num">436</td><td class="num hl">8</td><td class="num">1.8%</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <div class="takeaway">
       <strong>In one breath:</strong> 436 people clicked one of these 5 locked features last week;
       <strong>8 went on to pay</strong> (~2%). The 1 Gold-triggered buyer actually bought <em>Pro</em>, not Gold.
     </div>
+  </div>
+
+  <!-- TABLE 3 -->
+  <div class="card">
+    <h2>3 &middot; The "Invite new members" trigger &mdash; clicks &amp; conversion</h2>
+    <p class="h2note">Clicking <strong>Invite new members</strong> (the <span class="badge pro">PRO</span> item in the left sidebar)
+    pops the "Get 20% off Pro" upgrade modal. Counts distinct logged-in people; a payment counts only when it lands
+    <strong>after</strong> the click (verified in <code>is_stripepayments</code>).</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>What happened</th><th class="num">People</th><th class="num">Of prior step</th></tr></thead>
+      <tbody>
+        <tr><td><span class="emoji">👆</span>Clicked "Invite new members" (sidebar)</td><td class="num">51</td><td class="num">100%</td></tr>
+        <tr><td><span class="emoji">✅</span>Clicked "Upgrade to Pro" &rarr; reached paywall</td><td class="num">42</td><td class="num">82%</td></tr>
+        <tr class="total"><td><span class="emoji">💰</span>Actually PAID (converted)</td><td class="num hl">1</td><td class="num hl">~2.4%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="h2note" style="margin-top:18px;margin-bottom:6px"><strong>Where the 42 "Upgrade" clicks came from</strong> (entryPoint surface)</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Surface</th><th>Element</th><th class="num">Clickers</th></tr></thead>
+      <tbody>
+        <tr><td>InviteUpgradeMembers</td><td>Upgrade to Team Plan</td><td class="num">30</td></tr>
+        <tr><td>InviteScreen</td><td>InviteButton</td><td class="num">6</td></tr>
+        <tr><td>SidePanel</td><td>InviteTeamMembers</td><td class="num">4</td></tr>
+        <tr><td>invite-collab</td><td>Invite your team</td><td class="num">2</td></tr>
+        <tr class="total"><td>Total (unique people)</td><td></td><td class="num">42</td></tr>
+      </tbody>
+    </table></div>
+    <p class="h2note" style="margin-top:18px;margin-bottom:6px"><strong>The 1 who paid</strong> (payment landed after the trigger click)</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Buyer</th><th>Plan</th><th>Type</th><th class="num">Amount</th><th>Paid</th></tr></thead>
+      <tbody>
+        <tr><td>Buyer A <span class="h2note">(anonymized)</span></td><td>Pro</td><td>subscription</td><td class="num">₹7,199 INR</td><td>Jun 19</td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway">
+      <strong>In one breath:</strong> 51 people opened the invite flow, 42 clicked Upgrade, and
+      <strong>1 paid</strong> (~2.4%). ClickHouse's own success event logged <strong>0</strong> here &mdash; the
+      conversion only surfaces via the MySQL payment cross-check.
+    </div>
+    <p class="h2note" style="margin-top:14px"><span class="flag">Too thin to rank.</span> n=42 clickers / 1 buyer &mdash; directional only.
+    One other clicker bought Basic but <em>before</em> they hit this trigger, so they're a pre-existing payer, not a conversion.
+    Also: the UI button reads "Upgrade to Pro" but the dominant surface logs the element as <em>"Upgrade to Team Plan"</em> (inviting members is a team feature).</p>
   </div>
 
   <!-- NOTES -->
