@@ -1,0 +1,137 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pro/Gold trigger catalog — complete</title>
+<style>
+:root{--ink:#1a1a2e;--mut:#6b7280;--line:#e5e7eb;--accent:#4f46e5;--money:#0d9488}
+*{box-sizing:border-box} body{font:14px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#f7f7fb;margin:0;padding:30px}
+.wrap{max-width:1120px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px 36px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+h1{font-size:24px;margin:0 0 6px} h2{font-size:18px;margin:28px 0 6px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:4px}
+code{font:11.5px ui-monospace,Menlo,monospace;background:#f1f1f6;padding:1px 5px;border-radius:4px;color:#3730a3}
+.method{background:#f5f5ff;border:1px solid #e0e0f5;border-radius:10px;padding:13px 17px;margin:18px 0;font-size:13px}
+.method b{color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:12.8px}
+th,td{border-bottom:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}
+th{background:#fafafe;font-weight:600;color:#444}
+td.n{text-align:right;font-variant-numeric:tabular-nums} td.money{color:var(--money);font-weight:700}
+td.bz{font-size:11.5px;color:#555;max-width:250px}
+tr.thin td{color:#9aa0aa} tr.thin td.money{color:#9aa0aa}
+.b{font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:20px;white-space:nowrap}
+.b.pro{background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe}
+.b.gold{background:#fff7e6;color:#b45309;border:1px solid #fde68a}
+.b.none{background:#f3f4f6;color:#9ca3af;border:1px solid #e5e7eb}
+.foot{margin-top:24px;font-size:12px;color:var(--mut);border-top:1px solid var(--line);padding-top:14px}
+.foot li{margin:4px 0}
+.pill{display:inline-block;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:600;margin-right:6px}
+.pill.g{background:#eef2ff;color:#4338ca;border-color:#c7d2fe}
+</style></head><body><div class="wrap">
+<h1>Pro/Gold upgrade-trigger catalog — complete</h1>
+<div class="sub">presentations.ai · every trigger fired in the <b>last 30 days</b> · source: ClickHouse <code>payment_trigger_show</code>/<code>payment_trigger_action</code>, payments verified in MySQL <code>is_stripepayments</code></div>
+<div style="margin:14px 0"><span class="pill">46 distinct triggers</span><span class="pill g">30 active</span><span class="pill" style="background:#fef2f2;color:#b91c1c;border-color:#fecaca">16 dormant</span></div>
+<div class="method">A <b>trigger</b> = a PRO/GOLD button identified by <code>data.source.entryPointTask</code> × <code>entryPointElement</code>. 30-day funnel: <b>👁️ Saw → ✅ Clicked Upgrade → ❌ Discarded → 🚪 Left</b> (residual). <b>💰 Paid</b> = upgrade-clicker with a verified Stripe payment afterward (post-click, amount &gt; 0). <b>Conversion = paid ÷ saw.</b> Tier badges marked <b>✓</b> are confirmed from the product UI; others are inferred from the entitlement (<code>projects</code>=Gold) and may need product confirmation.</div>
+
+<h2>Active triggers <span class="sub">(30 — fired in last 14 days, sorted by 30-day volume)</span></h2>
+<table><thead><tr><th>Trigger (feature · task · element)</th><th class="n">👁️ Saw</th><th class="n">✅ Clk</th><th class="n">❌ Disc</th><th class="n">🚪 Left</th><th class="n">💰 Paid</th><th class="n">Conv</th><th>Buyers (30d)</th></tr></thead>
+<tbody><tr><td><b>Create project</b> <span class="b gold">GOLD</span><br><code>create_project</code> · <code>CreateProject</code></td>
+<td class="n">34,281</td><td class="n">3,678</td><td class="n">30,196</td><td class="n">407</td><td class="n money">78</td><td class="n">0.23%</td><td class="bz">34× Pro · 22× Pro Education · 18× Basic · 4× Document Export</td></tr>
+<tr><td><b>Unattributed popups</b> <span class="b none">—</span><br><code>(no_source)</code> · <code>(none)</code></td>
+<td class="n">8,833</td><td class="n">2,862</td><td class="n">5,852</td><td class="n">119</td><td class="n money">21</td><td class="n">0.24%</td><td class="bz">8× Pro · 7× Pro Education · 3× Basic · 3× Document Export</td></tr>
+<tr class="thin"><td><b>Use premium template</b> <span class="b pro">PRO</span><br><code>use_template</code> · <code>UseTemplate</code></td>
+<td class="n">5,886</td><td class="n">71</td><td class="n">1,551</td><td class="n">4,264</td><td class="n money">1</td><td class="n">0.02%</td><td class="bz">1× Pro</td></tr>
+<tr><td><b>Long slide count</b> <span class="b pro">PRO</span><br><code>very_long_slides</code> · <code>SlideCount</code></td>
+<td class="n">4,724</td><td class="n">1,147</td><td class="n">3,547</td><td class="n">30</td><td class="n money">36</td><td class="n">0.76%</td><td class="bz">16× Pro Education · 13× Pro · 3× Basic · 2× Document Export · 1× GPT3 Credits · 1× Gold</td></tr>
+<tr class="thin"><td><b>Create project (mobile)</b> <span class="b gold">GOLD</span><br><code>create_project_button</code> · <code>CreateProject</code></td>
+<td class="n">4,408</td><td class="n">826</td><td class="n">3,208</td><td class="n">374</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr>
+<tr><td><b>Server-gated action</b> <span class="b none">—</span><br><code>api_url</code> · <code>ServerResponse</code></td>
+<td class="n">3,264</td><td class="n">249</td><td class="n">2,961</td><td class="n">54</td><td class="n money">26</td><td class="n">0.80%</td><td class="bz">8× Basic · 8× Pro Education · 7× Pro · 2× Document Export · 1× Basic Student</td></tr>
+<tr><td><b>Premium AI model (Pro + Ultra)</b> <span class="b pro">PRO ✓</span> <span class="b gold">GOLD ✓</span><br><code>model_upgrade</code> · <code>Model</code></td>
+<td class="n">3,068</td><td class="n">593</td><td class="n">2,464</td><td class="n">11</td><td class="n money">24</td><td class="n">0.78%</td><td class="bz">9× Pro Education · 5× Basic · 4× GPT3 Credits · 4× Pro · 1× Gold · 1× Document Export</td></tr>
+<tr><td><b>Invite members (top menu)</b> <span class="b pro">PRO</span><br><code>workspace_members_invite</code> · <code>TopmenuUserFollowButton</code></td>
+<td class="n">2,603</td><td class="n">143</td><td class="n">2,444</td><td class="n">16</td><td class="n money">6</td><td class="n">0.23%</td><td class="bz">3× Pro · 2× Document Export · 1× Basic</td></tr>
+<tr class="thin"><td><b>Projects access</b> <span class="b gold">GOLD</span><br><code>projects_access</code> · <code>Projects</code></td>
+<td class="n">1,933</td><td class="n">254</td><td class="n">1,613</td><td class="n">66</td><td class="n money">2</td><td class="n">0.10%</td><td class="bz">1× Pro Education · 1× Pro</td></tr>
+<tr><td><b>Custom theme</b> <span class="b pro">PRO</span><br><code>add_theme</code> · <code>ThemeSidePanel</code></td>
+<td class="n">1,025</td><td class="n">78</td><td class="n">941</td><td class="n">6</td><td class="n money">6</td><td class="n">0.59%</td><td class="bz">4× Pro · 1× Basic · 1× Document Export</td></tr>
+<tr><td><b>Meet and edit</b> <span class="b pro">PRO ✓</span><br><code>meet_edit</code> · <code>GenerateMeetingLink</code></td>
+<td class="n">856</td><td class="n">45</td><td class="n">802</td><td class="n">9</td><td class="n money">4</td><td class="n">0.47%</td><td class="bz">2× Pro Education · 2× Pro</td></tr>
+<tr><td><b>Refresh data</b> <span class="b gold">GOLD ✓</span><br><code>data_refresh</code> · <code>DataRefresh</code></td>
+<td class="n">836</td><td class="n">109</td><td class="n">723</td><td class="n">4</td><td class="n money">4</td><td class="n">0.48%</td><td class="bz">2× GPT3 Credits · 1× Basic · 1× Gold</td></tr>
+<tr><td><b>Invite members (button)</b> <span class="b pro">PRO</span><br><code>workspace_members_invite</code> · <code>InviteButton</code></td>
+<td class="n">427</td><td class="n">35</td><td class="n">388</td><td class="n">4</td><td class="n money">4</td><td class="n">0.94%</td><td class="bz">3× Basic · 1× Pro</td></tr>
+<tr><td><b>Project knowledge</b> <span class="b gold">GOLD</span><br><code>project_knowledge_button</code> · <code>ProjectKnowledge</code></td>
+<td class="n">343</td><td class="n">55</td><td class="n">286</td><td class="n">2</td><td class="n money">3</td><td class="n">0.87%</td><td class="bz">1× Gpt Credits · 1× Gold · 1× Pro</td></tr>
+<tr class="thin"><td><b>Analytics</b> <span class="b pro">PRO ✓</span><br><code>doc_analytics</code> · <code>Analytics</code></td>
+<td class="n">217</td><td class="n">36</td><td class="n">182</td><td class="n">0</td><td class="n money">1</td><td class="n">0.46%</td><td class="bz">1× Pro</td></tr>
+<tr class="thin"><td><b>Invite team members</b> <span class="b pro">PRO</span><br><code>workspace_members_invite</code> · <code>InviteTeamMembers</code></td>
+<td class="n">169</td><td class="n">22</td><td class="n">145</td><td class="n">2</td><td class="n money">1</td><td class="n">0.59%</td><td class="bz">1× Pro</td></tr>
+<tr class="thin"><td><b>Assign slide</b> <span class="b pro">PRO</span><br><code>assign_slide</code> · <code>AssignSlide</code></td>
+<td class="n">161</td><td class="n">24</td><td class="n">135</td><td class="n">2</td><td class="n money">1</td><td class="n">0.62%</td><td class="bz">1× Pro</td></tr>
+<tr class="thin"><td><b>Meet and present</b> <span class="b pro">PRO ✓</span><br><code>meet_present</code> · <code>GenerateMeetingLink</code></td>
+<td class="n">127</td><td class="n">14</td><td class="n">112</td><td class="n">1</td><td class="n money">1</td><td class="n">0.79%</td><td class="bz">1× Document Export</td></tr>
+<tr class="thin"><td><b>Comments</b> <span class="b pro">PRO ✓</span><br><code>doc_comments</code> · <code>Comments</code></td>
+<td class="n">125</td><td class="n">7</td><td class="n">118</td><td class="n">0</td><td class="n money">1</td><td class="n">0.80%</td><td class="bz">1× Basic Student</td></tr>
+<tr class="thin"><td><b>Remove PAI branding</b> <span class="b pro">PRO ✓</span><br><code>advanced_settings</code> · <code>Remove logo</code></td>
+<td class="n">122</td><td class="n">20</td><td class="n">91</td><td class="n">11</td><td class="n money">2</td><td class="n">1.64%</td><td class="bz">1× Document Export · 1× Pro Education</td></tr>
+<tr class="thin"><td><b>Custom font</b> <span class="b pro">PRO</span><br><code>add_font</code> · <code>ThemeSidePanel</code></td>
+<td class="n">116</td><td class="n">3</td><td class="n">113</td><td class="n">0</td><td class="n money">1</td><td class="n">0.86%</td><td class="bz">1× Basic</td></tr>
+<tr class="thin"><td><b>Export to LinkedIn</b> <span class="b pro">PRO</span><br><code>export_linkedin</code> · <code>ExportLinkedIn</code></td>
+<td class="n">95</td><td class="n">20</td><td class="n">71</td><td class="n">4</td><td class="n money">1</td><td class="n">1.05%</td><td class="bz">1× Pro Education</td></tr>
+<tr class="thin"><td><b>Long slide count (settings)</b> <span class="b pro">PRO</span><br><code>very_long_slides</code> · <code>SettingsSlideCount</code></td>
+<td class="n">46</td><td class="n">14</td><td class="n">31</td><td class="n">1</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr>
+<tr class="thin"><td><b>Export — PowerPoint / Google Slides / PDF</b> <span class="b pro">PRO ✓</span><br><code>export_ppt</code> · <code>ExportPDF</code></td>
+<td class="n">35</td><td class="n">10</td><td class="n">23</td><td class="n">2</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr>
+<tr class="thin"><td><b>Post on LinkedIn</b> <span class="b pro">PRO</span><br><code>post_on_linkedin</code> · <code>PostOnLinkedIn</code></td>
+<td class="n">27</td><td class="n">5</td><td class="n">21</td><td class="n">1</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr>
+<tr class="thin"><td><b>Export as image</b> <span class="b pro">PRO ✓</span><br><code>export_image</code> · <code>ExportImage</code></td>
+<td class="n">15</td><td class="n">0</td><td class="n">15</td><td class="n">0</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr>
+<tr class="thin"><td><b>Alert when link viewed</b> <span class="b pro">PRO ✓</span><br><code>advanced_settings</code> · <code>Alert on view</code></td>
+<td class="n">6</td><td class="n">0</td><td class="n">5</td><td class="n">1</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr>
+<tr class="thin"><td><b>Password protect link</b> <span class="b pro">PRO ✓</span><br><code>advanced_settings</code> · <code>Password protect</code></td>
+<td class="n">6</td><td class="n">1</td><td class="n">5</td><td class="n">0</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr>
+<tr class="thin"><td><b>Change mood / theme</b> <span class="b pro">PRO</span><br><code>change_mood</code> · <code>MoodSelectorSidePanel</code></td>
+<td class="n">3</td><td class="n">0</td><td class="n">3</td><td class="n">0</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr>
+<tr class="thin"><td><b>Set link expiry date</b> <span class="b pro">PRO ✓</span><br><code>advanced_settings</code> · <code>Expiry date</code></td>
+<td class="n">1</td><td class="n">1</td><td class="n">0</td><td class="n">0</td><td class="n money">0</td><td class="n">0.00%</td><td class="bz">—</td></tr></tbody></table>
+
+<h2>Dormant triggers <span class="sub">(16 — no events in 30 days; listed so the catalog stays complete)</span></h2>
+<table><thead><tr><th>Trigger (feature · task · element)</th><th>First seen</th><th>Last seen</th></tr></thead>
+<tbody><tr class="thin"><td><b>Slide count (legacy create)</b> <span class="b pro">PRO</span><br><code>doc_create</code> · <code>SlideCountDropdown</code></td>
+<td>2025-08-29</td><td>2025-11-23</td></tr>
+<tr class="thin"><td><b>Create folder</b> <span class="b gold">GOLD</span><br><code>create_folder</code> · <code>CreateFolder</code></td>
+<td>2025-08-29</td><td>2026-04-20</td></tr>
+<tr class="thin"><td><b>Get more credits (right bar)</b> <span class="b pro">PRO</span><br><code>get_more_credits</code> · <code>CreditRightBar</code></td>
+<td>2025-08-29</td><td>2025-09-14</td></tr>
+<tr class="thin"><td><b>Invite members (side panel)</b> <span class="b pro">PRO</span><br><code>workspace_members_invite</code> · <code>SidePanel</code></td>
+<td>2025-08-29</td><td>2026-02-20</td></tr>
+<tr class="thin"><td><b>Get more credits (left bar)</b> <span class="b pro">PRO</span><br><code>get_more_credits</code> · <code>CreditLeftBar</code></td>
+<td>2025-08-29</td><td>2025-09-24</td></tr>
+<tr class="thin"><td><b>Invite-link (share-edit)</b> <span class="b pro">PRO</span><br><code>workspace_members_invite_link</code> · <code>ShareEditingScreen</code></td>
+<td>2026-02-20</td><td>2026-03-06</td></tr>
+<tr class="thin"><td><b>Change workspace domain</b> <span class="b gold">GOLD</span><br><code>change_workspace_domain</code> · <code>WorkspaceDomainChange</code></td>
+<td>2025-08-29</td><td>2026-02-20</td></tr>
+<tr class="thin"><td><b>Invite members (share-edit)</b> <span class="b pro">PRO</span><br><code>workspace_members_invite</code> · <code>ShareEditingScreen</code></td>
+<td>2026-02-20</td><td>2026-03-06</td></tr>
+<tr class="thin"><td><b>Invite-link (ws members)</b> <span class="b pro">PRO</span><br><code>workspace_members_invite_link</code> · <code>WorkspaceMembers</code></td>
+<td>2025-08-30</td><td>2026-02-20</td></tr>
+<tr class="thin"><td><b>Invite members (ws members)</b> <span class="b pro">PRO</span><br><code>workspace_members_invite</code> · <code>WorkspaceMembers</code></td>
+<td>2025-08-29</td><td>2026-02-20</td></tr>
+<tr class="thin"><td><b>Change mood (screen)</b> <span class="b pro">PRO</span><br><code>change_mood</code> · <code>MoodSelectorScreen</code></td>
+<td>2025-09-02</td><td>2026-02-20</td></tr>
+<tr class="thin"><td><b>Long slide count (assumptions)</b> <span class="b pro">PRO</span><br><code>very_long_slides</code> · <code>AssumptionsSlideCount</code></td>
+<td>2026-04-09</td><td>2026-04-15</td></tr>
+<tr class="thin"><td><b>Add workspace domain</b> <span class="b gold">GOLD</span><br><code>add_domain</code> · <code>WorkspaceDomainChange</code></td>
+<td>2025-09-02</td><td>2026-02-20</td></tr>
+<tr class="thin"><td><b>Add more domains</b> <span class="b gold">GOLD</span><br><code>add_more_domain</code> · <code>AddMoreDomainBtn</code></td>
+<td>2025-09-02</td><td>2026-02-15</td></tr>
+<tr class="thin"><td><b>Brand voice</b> <span class="b pro">PRO</span><br><code>brand_voice</code> · <code>BrandVoice</code></td>
+<td>2025-09-20</td><td>2026-01-07</td></tr>
+<tr class="thin"><td><b>Create-flow free trial</b> <span class="b pro">PRO</span><br><code>doc_create</code> · <code>CreateFlowFreeTrial</code></td>
+<td>2025-09-15</td><td>2025-09-15</td></tr></tbody></table>
+
+<div class="foot"><b>Completeness &amp; trust</b><ul>
+<li>Covers <b>every</b> distinct <code>entryPointTask × entryPointElement</code> that fires a <code>payment_trigger_*</code> event. Active = had events in the last 14 days; dormant = none recently (kept for completeness, dates only).</li>
+<li>Share-dialog PRO toggles are under <code>advanced_settings</code>: Remove PAI branding (<code>Remove logo</code>), Password protect (<code>Password protect</code>), Alert when viewed (<code>Alert on view</code>), Set expiry (<code>Expiry date</code>).</li>
+<li><b>Export formats share one trigger.</b> Export-dialog <b>PowerPoint</b>, <b>Google Slides</b> and <b>PDF</b> all fire the single <code>export_ppt</code> · <code>ExportPDF</code> trigger (no per-format field) — not separable. Only <b>Images</b> (<code>export_image</code>) is distinct.</li>
+<li><b>Tier (PRO vs GOLD)</b> is not on the event — it comes from the product UI. ✓ badges are confirmed from screenshots; the rest are inferred.</li>
+<li><code>(no_source)</code> = popups with an empty source field (~18% of events) — a tracking gap, not a button. Thin samples (greyed, paid &lt; 3) aren't rankable; buyers can see multiple triggers so paid counts overlap.</li>
+</ul></div>
+</div></body></html>
