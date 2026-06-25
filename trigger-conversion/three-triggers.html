@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Upgrade triggers — funnel & conversion (last 7 days)</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#6b7280; --line:#e5e7eb; --bg:#f7f8fa; --card:#fff;
+    --blue:#2563eb; --blue-bg:#eff4ff; --gold:#b8860b; --gold-bg:#fdf6e3;
+    --green:#15803d; --green-bg:#ecfdf3; --red:#b91c1c; --slate:#475569;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;padding:32px 16px}
+  .wrap{max-width:900px;margin:0 auto}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px 24px;margin:0 0 22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  h2{font-size:17px;margin:0 0 2px}
+  .h2note{color:var(--muted);font-size:13px;margin:0 0 16px}
+  .explain{background:var(--blue-bg);border:1px solid #cfe0ff;border-radius:12px;padding:16px 18px;margin:0 0 22px;font-size:14.5px}
+  .explain b{color:var(--blue)}
+  .steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .step{background:#fff;border:1px solid #cfe0ff;border-radius:8px;padding:6px 11px;font-size:13px;white-space:nowrap}
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  tr:last-child td{border-bottom:none}
+  .total td{font-weight:700;border-top:2px solid var(--ink);background:#fafbfc}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+  .pro{color:var(--blue);background:var(--blue-bg)}
+  .gold{color:var(--gold);background:var(--gold-bg)}
+  .emoji{font-size:15px;margin-right:6px}
+  .hl{color:var(--green);font-weight:700}
+  .takeaway{background:var(--green-bg);border:1px solid #bbf7d0;border-radius:10px;
+    padding:12px 16px;font-size:14.5px;margin-top:14px}
+  .barwrap{display:flex;align-items:center;gap:9px}
+  .bar{height:9px;border-radius:6px;background:var(--blue);display:inline-block}
+  .bar.g{background:var(--slate)}
+  .notes{font-size:13px;color:#374151;margin:0;padding-left:18px}
+  .notes li{margin:6px 0}
+  .flag{color:var(--red);font-weight:600}
+  .tscroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  footer{color:var(--muted);font-size:12px;margin-top:8px;text-align:center}
+  code{background:#f1f3f5;padding:1px 5px;border-radius:4px;font-size:12.5px}
+  @media (max-width:640px){
+    body{padding:18px 10px}
+    h1{font-size:21px}
+    .card{padding:16px 14px}
+    table{font-size:13.5px}
+    th,td{padding:8px 9px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Upgrade triggers — funnel &amp; conversion</h1>
+  <p class="sub">presentations.ai &middot; <strong>last 7 days</strong> (IST) &middot; window 2026-06-18 → 2026-06-25 (12:07 snapshot) &middot;
+  3 triggers, all measured the same way &middot; payments verified in MySQL <code>is_stripepayments</code>.</p>
+
+  <!-- HOW TO READ -->
+  <div class="explain">
+    <b>How to read this.</b> Each "trigger" is a <b>PRO/GOLD button</b> in the app. When a free user clicks it, the same
+    <b>"Upgrade to Pro" popup</b> appears. From there a person does exactly one of three things — and some later pay:
+    <div class="steps">
+      <span class="step">👆 Clicks a PRO button → <b>sees the popup</b></span>
+      <span class="step">✅ Clicks "Upgrade to Pro"</span>
+      <span class="step">❌ Closes the popup (discards)</span>
+      <span class="step">🚪 Leaves without acting</span>
+      <span class="step">💰 Later pays = conversion</span>
+    </div>
+    <p style="margin:12px 0 0;font-size:13.5px;color:var(--slate)">A payment only counts if it happens <b>after</b> the click.
+    "Discarded + Clicked + Left" always add up to "Saw the popup" — no one is counted twice.</p>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <h2>At a glance — the three triggers side by side</h2>
+    <p class="h2note">Distinct people. Conversion = paid ÷ everyone who saw the popup.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Trigger</th><th class="num">👁️ Saw popup</th><th class="num">✅ Clicked Upgrade</th><th class="num">❌ Discarded</th><th class="num">💰 Paid</th><th class="num">Conversion</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Create project</strong> <span class="badge pro">PRO</span></td><td class="num">5,993</td><td class="num">841</td><td class="num">5,034</td><td class="num hl">13</td><td class="num">0.22%</td></tr>
+        <tr><td><strong>Invite new members</strong> <span class="badge pro">PRO</span></td><td class="num">611</td><td class="num">40</td><td class="num">570</td><td class="num hl">2</td><td class="num">0.33%</td></tr>
+        <tr><td><strong>Locked editor features</strong> <span class="badge gold">GOLD</span><span class="badge pro">PRO</span></td><td class="num">394</td><td class="num">43</td><td class="num">347</td><td class="num hl">1</td><td class="num">0.25%</td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway">
+      <strong>In one breath:</strong> <strong>Create project</strong> is by far the biggest upgrade trigger — ~6,000 people see
+      the popup and <strong>13 pay</strong>. <strong>Invite</strong> and the <strong>locked editor features</strong> are far
+      smaller (hundreds of views, 1–2 payments each). All three convert at roughly the same low rate (~0.2–0.3%).
+    </div>
+  </div>
+
+  <!-- TRIGGER 1: CREATE PROJECT -->
+  <div class="card">
+    <h2>1 &middot; Create project <span class="badge pro">PRO</span></h2>
+    <p class="h2note">The "+ Create project" button in the left sidebar. Clicking it opens the "Upgrade for premium features" popup.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>What happened</th><th class="num">People</th><th class="num">Share</th><th>&nbsp;</th></tr></thead>
+      <tbody>
+        <tr><td><span class="emoji">👁️</span>Saw the popup</td><td class="num">5,993</td><td class="num">100%</td><td><div class="barwrap"><span class="bar" style="width:240px"></span></div></td></tr>
+        <tr><td><span class="emoji">✅</span>Clicked "Upgrade to Pro"</td><td class="num">841</td><td class="num">14%</td><td><div class="barwrap"><span class="bar" style="width:34px"></span></div></td></tr>
+        <tr><td><span class="emoji">❌</span>Discarded it (closed ✕)</td><td class="num">5,034</td><td class="num">84%</td><td><div class="barwrap"><span class="bar g" style="width:202px"></span></div></td></tr>
+        <tr><td><span class="emoji">🚪</span>Left without acting</td><td class="num">118</td><td class="num">2%</td><td><div class="barwrap"><span class="bar g" style="width:5px"></span></div></td></tr>
+        <tr class="total"><td><span class="emoji">💰</span>Paid (converted)</td><td class="num hl">13</td><td class="num hl">0.22%</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p class="h2note" style="margin-top:12px;margin-bottom:0"><strong>The 13 buyers bought:</strong> 6× Pro · 4× Pro Education · 2× Basic · 1× Document Export.</p>
+    <div class="takeaway"><strong>In one breath:</strong> ~6,000 people hit this popup, 841 clicked Upgrade, but 5,034 closed it. 13 ended up paying.</div>
+  </div>
+
+  <!-- TRIGGER 2: INVITE -->
+  <div class="card">
+    <h2>2 &middot; Invite new members <span class="badge pro">PRO</span></h2>
+    <p class="h2note">The "Invite new members" item in the sidebar (and other invite buttons). Clicking it opens the upgrade popup.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>What happened</th><th class="num">People</th><th class="num">Share</th><th>&nbsp;</th></tr></thead>
+      <tbody>
+        <tr><td><span class="emoji">👁️</span>Saw the popup</td><td class="num">611</td><td class="num">100%</td><td><div class="barwrap"><span class="bar" style="width:240px"></span></div></td></tr>
+        <tr><td><span class="emoji">✅</span>Clicked "Upgrade to Pro"</td><td class="num">40</td><td class="num">7%</td><td><div class="barwrap"><span class="bar" style="width:16px"></span></div></td></tr>
+        <tr><td><span class="emoji">❌</span>Discarded it (closed ✕)</td><td class="num">570</td><td class="num">93%</td><td><div class="barwrap"><span class="bar g" style="width:224px"></span></div></td></tr>
+        <tr><td><span class="emoji">🚪</span>Left without acting</td><td class="num">1</td><td class="num">&lt;1%</td><td><div class="barwrap"><span class="bar g" style="width:2px"></span></div></td></tr>
+        <tr class="total"><td><span class="emoji">💰</span>Paid (converted)</td><td class="num hl">2</td><td class="num hl">0.33%</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p class="h2note" style="margin-top:12px;margin-bottom:0"><strong>The 2 buyers bought:</strong> 1× Pro · 1× Document Export.</p>
+    <div class="takeaway"><strong>In one breath:</strong> 611 saw this popup, only 40 clicked Upgrade, 570 closed it, and 2 paid. Small but slightly higher conversion than Create project.</div>
+  </div>
+
+  <!-- TRIGGER 3: LOCKED FEATURES -->
+  <div class="card">
+    <h2>3 &middot; Locked editor features <span class="badge gold">GOLD</span> <span class="badge pro">PRO</span></h2>
+    <p class="h2note">The 5 locked items in the editor's "⋮" menu. Clicking any of them opens the upgrade popup. (Numbers below are distinct people across all 5.)</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>What happened</th><th class="num">People</th><th class="num">Share</th><th>&nbsp;</th></tr></thead>
+      <tbody>
+        <tr><td><span class="emoji">👁️</span>Saw the popup</td><td class="num">394</td><td class="num">100%</td><td><div class="barwrap"><span class="bar" style="width:240px"></span></div></td></tr>
+        <tr><td><span class="emoji">✅</span>Clicked "Upgrade to Pro"</td><td class="num">43</td><td class="num">11%</td><td><div class="barwrap"><span class="bar" style="width:26px"></span></div></td></tr>
+        <tr><td><span class="emoji">❌</span>Discarded it (closed ✕)</td><td class="num">347</td><td class="num">88%</td><td><div class="barwrap"><span class="bar g" style="width:211px"></span></div></td></tr>
+        <tr><td><span class="emoji">🚪</span>Left without acting</td><td class="num">4</td><td class="num">1%</td><td><div class="barwrap"><span class="bar g" style="width:3px"></span></div></td></tr>
+        <tr class="total"><td><span class="emoji">💰</span>Paid (converted)</td><td class="num hl">1</td><td class="num hl">0.25%</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p class="h2note" style="margin-top:18px;margin-bottom:6px"><strong>Which of the 5 features got clicked</strong> (people who clicked that feature &amp; saw the popup)</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Feature</th><th>Plan</th><th class="num">👆 Clicked it</th></tr></thead>
+      <tbody>
+        <tr><td>Refresh Data</td><td><span class="badge gold">GOLD</span></td><td class="num">163</td></tr>
+        <tr><td>Meet and edit</td><td><span class="badge pro">PRO</span></td><td class="num">157</td></tr>
+        <tr><td>Analytics</td><td><span class="badge pro">PRO</span></td><td class="num">46</td></tr>
+        <tr><td>Meet and present</td><td><span class="badge pro">PRO</span></td><td class="num">31</td></tr>
+        <tr><td>Comments</td><td><span class="badge pro">PRO</span></td><td class="num">25</td></tr>
+        <tr class="total"><td>Total (sum; unique people = 394)</td><td></td><td class="num">422</td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway"><strong>In one breath:</strong> 394 people clicked a locked editor feature, 347 just closed the popup, and only 1 paid. Refresh Data and Meet-and-edit drive almost all the clicks.</div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="card">
+    <h2>How the numbers were built &amp; what to trust</h2>
+    <ul class="notes">
+      <li><strong>One window, one method.</strong> All three triggers use the identical 7-day window and the same popup events, so they're directly comparable.</li>
+      <li><strong>"Saw the popup"</strong> = the upgrade popup was shown after the user clicked that PRO/GOLD button (ClickHouse <code>payment_trigger_show</code>, attributed by the button inside <code>data.source</code>).</li>
+      <li><strong>"Clicked / Discarded / Left"</strong> come from <code>payment_trigger_action</code> (clicked Upgrade = <em>success</em>, closed = <em>cancel</em>). Each person is classified once, so the three always sum to "Saw the popup."</li>
+      <li><strong>"Paid"</strong> = a real captured payment in MySQL <code>is_stripepayments</code> that landed <strong>after</strong> the click (joined ClickHouse <code>userId</code> → <code>is_users.id</code> → <code>is_stripepayments.userid</code>). This is more reliable than ClickHouse's own success event, which under-counts.</li>
+      <li class="flag">Thin samples: Invite (2 buyers) and locked features (1 buyer) are too small to rank by conversion rate — read them as directional, not precise. Create project (13) is the only one with a usable base.</li>
+      <li>These three are individual buttons; many other buttons also open the same popup, so they don't add up to the site-wide upgrade total.</li>
+    </ul>
+  </div>
+
+  <footer>Single validated 7-day snapshot · partition-checked · pai-analytics</footer>
+</div>
+</body>
+</html>
